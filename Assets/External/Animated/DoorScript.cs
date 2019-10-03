@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
-    public bool isLocked;
+    public bool silverLocked;
+    public bool goldLocked;
     Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class DoorScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(isLocked == false)
+        if(silverLocked == false && goldLocked == false)
         {
             anim.SetTrigger("OpenDoor");
         }
@@ -34,5 +35,16 @@ public class DoorScript : MonoBehaviour
     void PauseAnimationEvent()
     {
         anim.enabled = false;
+    }
+
+    public void UnlockSilverDoor()
+    {
+        print("Door unlocked...");
+        silverLocked = false;
+    }
+
+    public void UnlockGoldDoor()
+    {
+        goldLocked = false;
     }
 }

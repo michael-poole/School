@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 8646187089131799247}
   m_Layer: 0
   m_Name: Cube_10
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,6 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2854b65be887ceb40b82d925c67d2fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  silverLocked: 0
+  goldLocked: 0
 --- !u!1 &26676721507531922
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +430,7 @@ GameObject:
   - component: {fileID: 288981444868900143}
   m_Layer: 0
   m_Name: Cube_14
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -538,6 +540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2854b65be887ceb40b82d925c67d2fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  silverLocked: 0
+  goldLocked: 0
 --- !u!95 &288981444868900143
 Animator:
   serializedVersion: 3

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -88,7 +89,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
         private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
-
 
         public Vector3 Velocity
         {
@@ -259,6 +259,33 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (!m_PreviouslyGrounded && m_IsGrounded && m_Jumping)
             {
                 m_Jumping = false;
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+            var doorScripts = new List<DoorScript>();
+            foreach(GameObject door in doors)
+            {
+                DoorScript doorScript = door.GetComponent<DoorScript>();
+                doorScripts.Add(doorScript);
+            }
+            if(other.gameObject.CompareTag("SilverKey") || other.gameObject.CompareTag("GoldKey"))
+            {
+                foreach(DoorScript doorScript in doorScripts)
+                {
+                    if (other.gameObject.CompareTag("SilverKey"))
+                    {
+                        other.gameObject.SetActive(false);
+                        doorScript.UnlockSilverDoor();
+                    }
+                    else if (other.gameObject.CompareTag("GoldKey"))
+                    {
+                        other.gameObject.SetActive(false);
+                        doorScript.UnlockGoldDoor();
+                    }
+                }
             }
         }
     }

@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 884009572600486788}
   m_Layer: 0
   m_Name: a door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -544,6 +544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2854b65be887ceb40b82d925c67d2fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  silverLocked: 0
+  goldLocked: 0
 --- !u!135 &884009572600486788
 SphereCollider:
   m_ObjectHideFlags: 0
