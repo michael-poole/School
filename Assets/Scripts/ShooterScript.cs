@@ -6,12 +6,25 @@ using UnityEngine;
 public class ShooterScript : MonoBehaviour
 {
     public Animator animator;
+
+    public GameObject cam0;
+    public GameObject cam1;
+    public GameObject cam2;
+    public GameObject cam3;
+    public GameObject cam4;
+    public GameObject cam5;
+    public GameObject cam6;
+    public GameObject cam7;
+    public GameObject cam8;
+    public GameObject cam9;
+    
     public bool inHall0;
     public bool inHall1;
     public bool inHall2;
     public bool inHall3;
     public bool inCafe;
     private Rigidbody rb;
+
     private GameObject hall0;
     private GameObject hall1;
     private GameObject hall2;
@@ -22,15 +35,17 @@ public class ShooterScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.position = Vector3.zero;
+        //rb.position = Vector3.zero;
         hall0 = GameObject.Find("hallway0Floor");
         hall1 = GameObject.Find("hallway1Floor");
         hall2 = GameObject.Find("hallway2Floor");
         hall3 = GameObject.Find("hallway3Floor");
         cafe = GameObject.Find("cafeFloor");
+
         //System.Console.WriteLine("Hello world");
         //StartCoroutine(Run());
         //StartCoroutine(Stop());
+
     }
 
     // Update is called once per frame
@@ -55,6 +70,16 @@ public class ShooterScript : MonoBehaviour
     {
         if(rb.position[0] <= 31 && rb.position[0] >= -33.13 && rb.position[2] <= 2.089 && rb.position[2] >= -2.891)
         {
+            cam0.SetActive(true);
+            cam1.SetActive(true);
+            cam2.SetActive(false);
+            cam3.SetActive(false);
+            cam4.SetActive(false);
+            cam5.SetActive(false);
+            cam6.SetActive(false);
+            cam7.SetActive(false);
+            cam8.SetActive(false);
+            cam9.SetActive(false);
             inHall0 = true;
             return true;
         }
@@ -69,6 +94,16 @@ public class ShooterScript : MonoBehaviour
     {
         if (rb.position[0] <= -33.691 && rb.position[0] >= -38.899 && rb.position[2] <= 2.381 && rb.position[2] >= -61.455)
         {
+            cam0.SetActive(false);
+            cam1.SetActive(false);
+            cam2.SetActive(true);
+            cam3.SetActive(true);
+            cam4.SetActive(false);
+            cam5.SetActive(false);
+            cam6.SetActive(false);
+            cam7.SetActive(false);
+            cam8.SetActive(false);
+            cam9.SetActive(false);
             inHall1 = true;
             return true;
         }
@@ -83,6 +118,16 @@ public class ShooterScript : MonoBehaviour
     {
         if (rb.position[0] <= 30.466 && rb.position[0] >= -33.418 && rb.position[2] <= -56.259 && rb.position[2] >= -61.433)
         {
+            cam0.SetActive(false);
+            cam1.SetActive(false);
+            cam2.SetActive(false);
+            cam3.SetActive(false);
+            cam4.SetActive(true);
+            cam5.SetActive(true);
+            cam6.SetActive(false);
+            cam7.SetActive(false);
+            cam8.SetActive(false);
+            cam9.SetActive(false); 
             inHall2 = true;
             return true;
         }
@@ -97,6 +142,17 @@ public class ShooterScript : MonoBehaviour
     {
         if (rb.position[0] <= -39.162 && rb.position[0] >= -102.937 && rb.position[2] <= -29.6 && rb.position[2] >= -34.8)
         {
+
+            cam0.SetActive(false);
+            cam1.SetActive(false);
+            cam2.SetActive(false);
+            cam3.SetActive(false);
+            cam4.SetActive(false);
+            cam5.SetActive(false);
+            cam6.SetActive(true);
+            cam7.SetActive(true);
+            cam8.SetActive(false);
+            cam9.SetActive(false); 
             inHall3 = true;
             return true;
         }
@@ -111,6 +167,16 @@ public class ShooterScript : MonoBehaviour
     {
         if (rb.position[0] <= -2.758 && rb.position[0] >= -33.441 && rb.position[2] <= -19.394 && rb.position[2] >= -45.969)
         {
+            cam0.SetActive(false);
+            cam1.SetActive(false);
+            cam2.SetActive(false);
+            cam3.SetActive(false);
+            cam4.SetActive(false);
+            cam5.SetActive(false);
+            cam6.SetActive(false);
+            cam7.SetActive(false);
+            cam8.SetActive(true);
+            cam9.SetActive(true); 
             inCafe = true;
             return true;
         }
@@ -122,20 +188,20 @@ public class ShooterScript : MonoBehaviour
         }
     }
 
-    /*    IEnumerator Run()
+    //Needs fixing
+    /*
+    void IsRunning()
+    {
+        var speed = rb.velocity.magnitude;
+        if(speed == 0)
         {
-            print(Time.time);
-            yield return new WaitForSecondsRealtime(2);
-            print(Time.time);
+            animator.SetBool("IsMoving", false);
+        }
+        else
+        {
             animator.SetBool("IsMoving", true);
         }
-        IEnumerator Stop()
-        {
-            splineMove mySplineMove = FindObjectOfType<splineMove>();
-            print(Time.time);
-            yield return new WaitForSecondsRealtime(3);
-            print(Time.time);
-            animator.SetBool("IsMoving", false);
-            mySplineMove.StartMove();
-        }*/
+    }
+    */
+
 }
